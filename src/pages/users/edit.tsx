@@ -5,13 +5,13 @@ import { Form, Input, Select } from "antd";
 export const UserEdit = () => {
   const { formProps, saveButtonProps, queryResult, formLoading } = useForm({});
 
-  const blogPostsData = queryResult?.data?.data;
+  const userData = queryResult?.data?.data;
 
-  const { selectProps: categorySelectProps } = useSelect({
-    resource: "categories",
-    defaultValue: blogPostsData?.category,
+  const { selectProps: subscriptionSelectProps } = useSelect({
+    resource: "subscriptions",
+    defaultValue: userData?.subscription,
     queryOptions: {
-      enabled: !!blogPostsData?.category,
+      enabled: !!userData?.subscription,
     },
   });
 
@@ -19,8 +19,8 @@ export const UserEdit = () => {
     <Edit saveButtonProps={saveButtonProps} isLoading={formLoading}>
       <Form {...formProps} layout="vertical">
         <Form.Item
-          label={"Title"}
-          name={["title"]}
+          label={"Name"}
+          name={["name"]}
           rules={[
             {
               required: true,
@@ -30,32 +30,32 @@ export const UserEdit = () => {
           <Input />
         </Form.Item>
         <Form.Item
-          label={"Content"}
-          name="content"
+          label={"Email"}
+          name="email"
           rules={[
             {
               required: true,
             },
           ]}
         >
-          <MDEditor data-color-mode="light" />
+          <Input />
         </Form.Item>
         <Form.Item
-          label={"Category"}
-          name={["category", "id"]}
-          initialValue={formProps?.initialValues?.category?.id}
+          label={"Subscription"}
+          name={["subscription", "id"]}
+          initialValue={formProps?.initialValues?.subscription?.id}
           rules={[
             {
               required: true,
             },
           ]}
         >
-          <Select {...categorySelectProps} />
+          <Select {...subscriptionSelectProps} />
         </Form.Item>
         <Form.Item
           label={"Status"}
           name={["status"]}
-          initialValue={"draft"}
+          initialValue={formProps?.initialValues?.status}
           rules={[
             {
               required: true,
@@ -63,12 +63,11 @@ export const UserEdit = () => {
           ]}
         >
           <Select
-            defaultValue={"draft"}
             options={[
-              { value: "draft", label: "Draft" },
-              { value: "published", label: "Published" },
-              { value: "rejected", label: "Rejected" },
+              { value: "active", label: "Active" },
+              { value: "inactive", label: "Inactive" },
             ]}
+            defaultValue={formProps?.initialValues?.status}
             style={{ width: 120 }}
           />
         </Form.Item>

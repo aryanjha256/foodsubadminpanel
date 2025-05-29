@@ -1,0 +1,98 @@
+{
+    "meals": [
+        {
+            "id": "1",
+            "name": "Meal 1",
+            "description": "Meal 1 description",
+            "price": 100,
+            "createdAt": "2021-01-01",
+            "updatedAt": "2021-01-01"
+        }
+    ],
+    "restaurants": [
+        {
+            "id": "1",
+            "name": "Restaurant 1",
+            "address": "123 Main St",
+            "phone": "123-456-7890",
+            "email": "restaurant1@example.com",
+            "website": "https://www.restaurant1.com",
+            "createdAt": "2021-01-01",
+            "updatedAt": "2021-01-01"
+        }
+    ],
+    "users": [
+        {
+            "id": "1",
+            "name": "Aryan Kumar",
+            "email": "john@doe.com",
+            "password": "password",
+            "status": "active",
+            "createdAt": "2021-01-01",
+            "updatedAt": "2021-01-01",
+            "subscription": {
+                "id": "4"
+            }
+        },
+        {
+            "id": "2",
+            "name": "Jane Doe",
+            "email": "jane@doe.com",
+            "password": "password",
+            "status": "active",
+            "createdAt": "2021-01-01",
+            "updatedAt": "2021-01-01",
+            "subscription": {
+                "id": "3"
+            }
+        },
+        {
+            "id": "099d",
+            "name": "TareZa",
+            "email": "xxx@xxx.xom",
+            "subscription": {
+                "id": "3"
+            },
+            "status": "inactive"
+        }
+    ],
+    "subscriptions": [
+        {
+            "id": "1",
+            "name": "Daily",
+            "price": 10,
+            "createdAt": "2021-01-01",
+            "updatedAt": "2021-01-01"
+        },
+        {
+            "id": "2",
+            "name": "Weekly",
+            "price": 50,
+            "createdAt": "2021-01-01",
+            "updatedAt": "2021-01-01"
+        },
+        {
+            "id": "3",
+            "name": "Monthly",
+            "price": 100,
+            "createdAt": "2021-01-01",
+            "updatedAt": "2021-01-01"
+        },
+        {
+            "id": "4",
+            "name": "Yearly",
+            "price": 1000,
+            "createdAt": "2021-01-01",
+            "updatedAt": "2021-01-01"
+        }
+    ],
+    "orders": [
+        {
+            "id": "1",
+            "userId": "1",
+            "restaurantId": "1",
+            "createdAt": "2021-01-01",
+            "updatedAt": "2021-01-01"
+        }
+    ]
+}

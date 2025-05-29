@@ -10,9 +10,9 @@ export const UserShow = () => {
 
   const record = data?.data;
 
-  const { data: categoryData, isLoading: categoryIsLoading } = useOne({
-    resource: "categories",
-    id: record?.category?.id || "",
+  const { data: subscriptionData, isLoading: subscriptionIsLoading } = useOne({
+    resource: "subscriptions",
+    id: record?.subscription || "",
     queryOptions: {
       enabled: !!record,
     },
@@ -22,14 +22,18 @@ export const UserShow = () => {
     <Show isLoading={isLoading}>
       <Title level={5}>{"ID"}</Title>
       <TextField value={record?.id} />
-      <Title level={5}>{"Title"}</Title>
-      <TextField value={record?.title} />
-      <Title level={5}>{"Content"}</Title>
-      <MarkdownField value={record?.content} />
-      <Title level={5}>{"Category"}</Title>
+      <Title level={5}>{"Name"}</Title>
+      <TextField value={record?.name} />
+      <Title level={5}>{"Email"}</Title>
+      <TextField value={record?.email} />
+      <Title level={5}>{"Subscription"}</Title>
       <TextField
         value={
-          categoryIsLoading ? <>Loading...</> : <>{categoryData?.data?.title}</>
+          subscriptionIsLoading ? (
+            <>Loading...</>
+          ) : (
+            <>{subscriptionData?.data?.name}</>
+          )
         }
       />
       <Title level={5}>{"Status"}</Title>
